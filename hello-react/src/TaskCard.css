@@ -1,0 +1,26 @@
+* {
+  font-family: cursive;
+}
+
+.TaskMain {
+  border: 2px solid #dfdfdf;
+  border-radius: 20px;
+  padding: 6px 18px;
+  /* margin-bottom: 6px; */
+  height: 80vh;
+}
+.TaskItem {
+  border: 3px solid #dfdfdf;
+  /* border-radius: 20px; */
+  padding: 6px 18px;
+  margin-bottom: 6px;
+}
+.text {
+  font-size: 17px;
+  background-color: #dfdfdf;
+  padding: 5px 5px;
+}
+.info {
+  padding-left: 7rem;
+  margin: 30px 0px;
+}
