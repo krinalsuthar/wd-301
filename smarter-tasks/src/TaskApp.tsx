@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
@@ -23,6 +23,7 @@ const TaskApp = () => {
     const updatedTasks = taskAppState.tasks.filter(task => task.title !== title);
     setTaskAppState({ tasks: updatedTasks });
   };
+  
   // React.useEffect(() => {
   //   // This is correct usage
   //     const saveTasks = async () => {
