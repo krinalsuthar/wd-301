@@ -1,6 +1,8 @@
 export interface TaskItem {
-    title: string;
-    desc:string;
-    dueDate:any
+  deleteTask(title: string): void;
+  title: string;
+  desc: string;
+  dueDate: any;
+
 }
 // default export TaskItem

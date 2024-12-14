@@ -17,17 +17,17 @@ const TaskForm = (props: TaskFormProps) => {
         dueDate: "",
       });
       const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(`${event.target.value}`);
+        // console.log(`${event.target.value}`);
         setFormState({ ...formState, title: event.target.value });
       };
       const descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
         event
       ) => {
-        console.log(`${event.target.value}`);
+        // console.log(`${event.target.value}`);
         setFormState({ ...formState, desc: event.target.value });
       };
       const dueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(`${event.target.value}`);
+        // console.log(`${event.target.value}`);
         setFormState({ ...formState, dueDate: event.target.value });
       };
       const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
@@ -96,6 +96,7 @@ const TaskForm = (props: TaskFormProps) => {
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <button
+              id="addTaskButton"
                 type="submit"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
