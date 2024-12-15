@@ -19,21 +19,10 @@ const TaskApp = () => {
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
-  const deleteTask = (title: string) => {
-    const updatedTasks = taskAppState.tasks.filter(task => task.title !== title);
+  const deleteTask = (taskToDelete: TaskItem) => {
+    const updatedTasks = taskAppState.tasks.filter(task => task.title !== taskToDelete.title);
     setTaskAppState({ tasks: updatedTasks });
   };
-  
-  // React.useEffect(() => {
-  //   // This is correct usage
-  //     const saveTasks = async () => {
-  //       const token = await saveTasksToBackend(taskAppState.tasks);
-  //     }
-  //     saveTasks();
-  //     return () => {
-  //       cancelAPI(token);
-  //     };
-  //   }, [taskAppState.tasks]);
   return (
     <div className="container py-10 max-w-7xl mx-auto text-center">
       <h1 className="text-3xl mb-2 font-bold text-slate-700">Smarter Tasks</h1>

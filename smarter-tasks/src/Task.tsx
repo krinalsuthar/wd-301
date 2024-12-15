@@ -1,29 +1,32 @@
 import { TaskItem } from "./types";
 
-// interface TaskProps{
-//     title:string,
-//     desc:string,
-//     dueDate:any
-// }
-
-interface TaskProps extends TaskItem {
-  deleteTask: (title: string) => void; // Add deleteTask prop
+interface TaskProps {
+  task: TaskItem;
+  deleteTask: (task: TaskItem) => void; 
 }
 
-const TaskFC = (props: TaskProps) => {
+const Task = (props: TaskProps) => {
+  const { task, deleteTask } = props;
   return (
-    <div className="TaskItem shadow-md border border-slate-100 text-center">
-      <h2 className="text-base font-bold my-1">{props.title}<button
-        className="deleteTaskButton mt-4 float-end pr-3"
-        onClick={() => props.deleteTask(props.title)} // Call deleteTask on click
-      >
-        <i className="fa-solid fa-trash fa-lg "></i>
-      </button></h2>
-      <p className="text-sm text-slate-500">Description: {props.desc}</p>
-      <p className="text-sm text-slate-500">{props.dueDate}</p>
+    <div className="TaskItem shadow-md border border-slate-100">
+      <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+        <div>
+          <a href={`/tasks/${task.id || ""}`}>
+            <h2 className="text-base font-bold my-1">{task.title}</h2>
+          </a>
+          <p className="text-sm text-slate-500">{task.dueDate}</p>
+          <p className="text-sm text-slate-500">
+            Description: {task.desc}
+          </p>
+        </div>
+
+        <button className="deleteTaskButton cursor-pointer flex items-center justify-center h-4 w-4 rounded-full my-5 mr-5"
+          onClick={() => deleteTask(task)}>
+          X
+        </button>
+      </div>
     </div>
   );
 };
 
-
-export default TaskFC;
+export default Task;

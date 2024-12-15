@@ -1,18 +1,21 @@
 import React from "react"
 import { TaskItem } from "./types";
+import { v4 as uuidv4 } from 'uuid';
 
 interface TaskFormProps {
   addTask: (task: TaskItem) => void;
 }
 interface TaskFormState {
+  id: string,
   title: string;
   desc: string;
   dueDate: any
-  deleteTask(title: string): void;
+  deleteTask: (task: TaskItem) => void;
 }
 
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
+    id: uuidv4(),
     title: "",
     desc: "",
     dueDate: "",
@@ -39,7 +42,7 @@ const TaskForm = (props: TaskFormProps) => {
       return;
     }
     props.addTask(formState);
-    setFormState({ title: "", desc: "", dueDate: "", deleteTask: () => { } });
+    setFormState({ id: uuidv4(), title: "", desc: "", dueDate: "", deleteTask: () => { } });
   };
   return (
     <form onSubmit={addTask}>
